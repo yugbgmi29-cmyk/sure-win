@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUREWIN BHAI | VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --bg-dark: #050505;
+            --telegram-blue: #2481cc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 35px 25px;
+            border-radius: 35px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gold);
+            padding: 3px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .title { font-size: 30px; font-weight: 800; letter-spacing: 1px; color: #fff; margin-bottom: 5px; }
+        .subtitle { font-size: 14px; color: #a1a1aa; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--gold), #b8860b);
+            border: none;
+            border-radius: 20px;
+            color: #000;
+            font-weight: 800;
+            font-size: 17px;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .btn:hover { transform: scale(1.03); }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 30px; }
+        .stat-item { background: rgba(255, 255, 255, 0.04); padding: 12px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.05); }
+        .stat-number { font-size: 15px; font-weight: 700; color: #fff; }
+        .stat-label { font-size: 8px; color: #777; text-transform: uppercase; margin-top: 4px; }
+
+        /* Real Telegram Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(20, 20, 20, 0.9);
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+        .online-dot { width: 8px; height: 8px; background: #4caf50; border-radius: 50%; }
+
+        .footer-link { font-size: 11px; color: #555; text-decoration: none; display: block; margin-top: 25px; transition: 0.3s; }
+        .footer-link:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://i.ibb.co/pjKDdbPW/IMG-20260812-WA0004.jpg" alt="Profile" class="profile-img">
+        
+        <h1 class="title">SUREWIN BHAI</h1>
+        <p class="subtitle">VIP GAMING ACCESS</p>
+
+        <a href="https://t.me/m/GH0OTfWXMzM1" class="btn">MESSAGE HERE</a>
+
+        <div class="stats-grid">
+            <div class="stat-item"><div class="stat-number">10K+</div><div class="stat-label">USERS</div></div>
+            <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">SUPPORT</div></div>
+            <div class="stat-item"><div class="stat-number">EXPERT</div><div class="stat-label">TRADER</div></div>
+        </div>
+
+        <a href="https://t.me/GODXOWNER17" class="footer-link">Ads manage by @GODXOWNER17</a>
+    </div>
+
+    <!-- Telegram Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="online-dot"></div>
+        <span id="toast-text">Aryan joined the group</span>
+    </div>
+
+    <script>
+        // Telegram Names Animation
+        const names = ["Aryan", "Diya", "Ishan", "Kartik", "Meera", "Manan", "Kabir", "Vihaan", "Aarav", "Shivam"];
+        const toast = document.getElementById('toast');
+        const toastText = document.getElementById('toast-text');
+        
+        function showToast() {
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            toastText.textContent = `${randomName} joined the group`;
+            toast.style.opacity = 1;
+            
+            setTimeout(() => {
+                toast.style.opacity = 0;
+            }, 3000);
+        }
+
+        setInterval(showToast, 5000); // Har 5 second mein notification aayega
+    </script>
+</body>
+</html>
