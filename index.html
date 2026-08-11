@@ -18,10 +18,13 @@
             background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            padding-top: 30px; /* Ye landing page ko upar khiska dega */
             color: white;
-            padding: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
         }
 
         .container {
@@ -145,10 +148,12 @@
             
             setTimeout(() => {
                 toast.style.opacity = 0;
-            }, 2000); // 2 second mein gayab
+            }, 2000); 
         }
 
-        setInterval(showToast, 4000); // Har 4 second mein ek naya notification
+        // Turant start karne ke liye:
+        setTimeout(showToast, 500); // 0.5 sec mein pehli notification
+        setInterval(showToast, 4000); // Fir har 4 second mein
     </script>
 </body>
 </html>
