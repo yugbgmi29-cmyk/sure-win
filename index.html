@@ -9,7 +9,6 @@
         :root {
             --gold: #d4af37;
             --bg-dark: #050505;
-            --telegram-blue: #2481cc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -81,24 +80,27 @@
         .stat-number { font-size: 15px; font-weight: 700; color: #fff; }
         .stat-label { font-size: 8px; color: #777; text-transform: uppercase; margin-top: 4px; }
 
-        /* Real Telegram Toast */
+        /* Telegram Toast */
         .toast {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(20, 20, 20, 0.9);
-            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
             border-radius: 50px;
-            border: 1px solid #333;
+            border: 1px solid rgba(255,255,255,0.2);
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 13px;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: all 0.5s ease;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             pointer-events: none;
+            color: white;
+            white-space: nowrap;
         }
         .online-dot { width: 8px; height: 8px; background: #4caf50; border-radius: 50%; }
 
@@ -128,26 +130,25 @@
     <!-- Telegram Toast Notification -->
     <div class="toast" id="toast">
         <div class="online-dot"></div>
-        <span id="toast-text">Aryan joined the group</span>
+        <span id="toast-text">Aryan messaged now</span>
     </div>
 
     <script>
-        // Telegram Names Animation
         const names = ["Aryan", "Diya", "Ishan", "Kartik", "Meera", "Manan", "Kabir", "Vihaan", "Aarav", "Shivam"];
         const toast = document.getElementById('toast');
         const toastText = document.getElementById('toast-text');
         
         function showToast() {
             const randomName = names[Math.floor(Math.random() * names.length)];
-            toastText.textContent = `${randomName} joined the group`;
+            toastText.textContent = `${randomName} messaged now`;
             toast.style.opacity = 1;
             
             setTimeout(() => {
                 toast.style.opacity = 0;
-            }, 3000);
+            }, 2000); // 2 second mein gayab
         }
 
-        setInterval(showToast, 5000); // Har 5 second mein notification aayega
+        setInterval(showToast, 4000); // Har 4 second mein ek naya notification
     </script>
 </body>
 </html>
